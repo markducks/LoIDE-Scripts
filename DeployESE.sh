@@ -2,7 +2,7 @@
 
 BASE_PATH=""
 CONFIG_PATH_ESE="$BASE_PATH/ese/config"
-LOGS_PATH_ESE="$BASE_PATH/ese/logs"
+LOGS_PATH_ESE="$BASE_PATH/ese/logs/ese.log"
 
 # Pull and run the latest version of the ESE
 # ADD THE PATH TO THE CONFIGURATION FOLDER IN THE --mount OPTION

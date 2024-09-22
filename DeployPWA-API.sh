@@ -5,9 +5,9 @@
 # API_SERVER is the IP address of the API server.
 BASE_PATH=""
 CONFIG_PATH_API="$BASE_PATH/api/config"
-LOGS_PATH_API="$BASE_PATH/api/logs"
+LOGS_PATH_API="$BASE_PATH/api/logs/api.log"
 CONFIG_PATH_PWA="$BASE_PATH/pwa/config"
-LOGS_PATH_PWA="$BASE_PATH/pwa/logs"
+LOGS_PATH_PWA="$BASE_PATH/pwa/logs/pwa.log"
 API_SERVER=""
 
 # Pull and run the latest version of the API
@@ -19,4 +19,3 @@ nohup docker run --network host --mount type=bind,source=$CONFIG_PATH_API,target
 # ADD THE PATH TO THE CONFIGURATION FOLDER IN THE --mount OPTION
 docker pull loideunical/loide:pwa
 nohup docker run --network host --env REACT_APP_LOIDE_API_SERVER=$API_SERVER --mount type=bind,source=$CONFIG_PATH_PWA,target=/app/config --restart=always --name pwa loideunical/loide:pwa >> $LOGS_PATH_PWA 2>&1 &
-
