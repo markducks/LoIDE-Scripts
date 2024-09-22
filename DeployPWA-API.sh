@@ -1,14 +1,14 @@
 #!/bin/bash
 
-CONFIG_PATH_PWA=""
 CONFIG_PATH_API=""
-LOGS_PATH_PWA=""
 LOGS_PATH_API=""
+CONFIG_PATH_PWA=""
+LOGS_PATH_PWA=""
 API_SERVER=""
 
 # Pull and run the latest version of the API
 # ADD THE PATH TO THE CONFIGURATION FOLDER IN THE --mount OPTION
-docker pull loideunical/loide:pwa
+docker pull loideunical/loide:api
 nohup docker run --network host --mount type=bind,source=CONFIG_PATH,target=/app/config --restart=always --name api loideunical/loide:api >> LOGS_PATH_PWA 2>&1 &
 
 # Pull and run the latest version of the PWA
