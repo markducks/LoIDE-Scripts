@@ -3,7 +3,7 @@
 #CONFIG_PATH_ESE is the path to the configuration folder of the ESE.
 #LOGS_PATH_ESE is the path to the log file of the ESE.
 BASE_PATH=""
-CONFIG_PATH_ESE="$BASE_PATH/ese/config"
+CONFIG_PATH_ESE="$BASE_PATH/ese/config/config_files"
 LOGS_PATH_ESE="$BASE_PATH/ese/logs/ese.log"
 
 # Pull and run the latest version of the ESE
