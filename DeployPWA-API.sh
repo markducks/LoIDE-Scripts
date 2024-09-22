@@ -18,5 +18,5 @@ nohup docker run --network host --mount type=bind,source=$CONFIG_PATH_API,target
 # Pull and run the latest version of the PWA
 # ADD THE PATH TO THE CONFIGURATION FOLDER IN THE --mount OPTION
 docker pull loideunical/loide:pwa
-nohup docker run --network host --env REACT_APP_LOIDE_API_SERVER=API_SERVER --mount type=bind,source=$CONFIG_PATH_PWA,target=/app/config --restart=always --name pwa loideunical/loide:pwa >> $BASE_PATH/$LOGS_PATH_PWA 2>&1 &
+nohup docker run --network host --env REACT_APP_LOIDE_API_SERVER=API_SERVER --mount type=bind,source=$CONFIG_PATH_PWA,target=/app/config --restart=always --name pwa loideunical/loide:pwa >> $LOGS_PATH_PWA 2>&1 &
 
