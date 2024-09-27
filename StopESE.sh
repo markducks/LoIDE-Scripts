@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo docker stop ese
+docker stop ese

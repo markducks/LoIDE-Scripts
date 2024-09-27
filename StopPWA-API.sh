@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo docker stop pwa
-sudo docker stop api
+docker stop pwa
+docker stop api
