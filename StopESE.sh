@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo docker stop loideunical/loide:ese
+sudo docker stop ese
