@@ -6,6 +6,18 @@ BASE_PATH=""
 CONFIG_PATH_ESE="$BASE_PATH/ese/config/config_files"
 LOGS_PATH_ESE="$BASE_PATH/ese/logs/ese.log"
 
+# Write the current date and time to the log files
+echo "" >> $LOGS_PATH_ESE
+echo "$(date '+%D %T')" >> $LOGS_PATH_ESE
+
 # Pull and run the latest version of the ESE
-docker pull loideunical/loide:ese
-nohup docker run --network host --mount type=bind,source=$CONFIG_PATH_ESE,target=/config_files --privileged=true --restart=always --name ese loideunical/loide:ese >> $LOGS_PATH_ESE 2>&1 &
+docker pull loideunical/loide:ese | head -n 3
+
+# Check if the ESE container is already running
+if [[ -n "$(docker ps -q -f name=ese)" ]]; then
+    echo "ESE container is already running. Avoiding to start a new one."
+# If not start a new API container
+else
+    echo "Starting a new ESE container."
+    nohup docker run --network host --mount type=bind,source=$CONFIG_PATH_ESE,target=/config_files --privileged=true --restart=always --name ese loideunical/loide:ese >> $LOGS_PATH_ESE 2>&1 &
+fi
